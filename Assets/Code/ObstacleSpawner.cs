@@ -1,16 +1,26 @@
+using System.Collections;
 using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private float spawnInterval = 2f;
+    [SerializeField] private float spawnRangeDown = -3f;
+    [SerializeField] private float spawnRangeUp = 3f;
+    [SerializeField] private GameObject obstaclePrefab;
+
+    private IEnumerator Start()
     {
-        
+        while (true)
+        {
+            SpawnObstacle();
+            yield return new WaitForSeconds(spawnInterval);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SpawnObstacle()
     {
-        
+        float spawnY = Random.Range(spawnRangeDown, spawnRangeUp);
+        Vector3 spawnPosition = new Vector3(transform.position.x, spawnY, 0);
+        Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity);
     }
 }

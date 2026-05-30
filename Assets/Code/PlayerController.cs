@@ -28,4 +28,16 @@ public class PlayerController : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("DeadZone"))
+        {
+            Destroy(this.gameObject);
+        }
+        else if (other.gameObject.CompareTag("Point"))
+        {
+            ScoreManager.Instance.AddScore(1);
+        }
+    }
 }
