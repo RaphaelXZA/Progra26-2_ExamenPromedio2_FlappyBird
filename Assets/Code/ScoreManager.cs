@@ -18,11 +18,38 @@ public class ScoreManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        FindTextGameObject();
     }
 
     public void AddScore(int pointsAdded)
     {
         Score += pointsAdded;
+        UpdateScoreText();
+    }
+
+    public void ResetScore()
+    {
+        FindTextGameObject();
+        Score = 0;
+        UpdateScoreText();
+    }
+
+    private void UpdateScoreText()
+    {
         scoreText.text = $"Score: {Score}";
     }
+
+    private void FindTextGameObject()
+    {
+        if (scoreText == null)
+        {
+            GameObject scoreObject = GameObject.FindGameObjectWithTag("ScoreText");
+            if (scoreObject != null)
+            {
+                scoreText = scoreObject.GetComponent<TextMeshProUGUI>();
+            }
+        }
+    }
+
+    
 }

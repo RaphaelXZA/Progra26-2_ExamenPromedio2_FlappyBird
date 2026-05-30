@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -7,9 +8,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private bool isDead;
 
-    private void Awake()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        ScoreManager.Instance.ResetScore();
     }
 
     private void Update()
@@ -25,7 +27,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             isDead = true;
-            Destroy(this.gameObject);
+            SceneManager.LoadScene(2);
         }
     }
 
@@ -33,7 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("DeadZone"))
         {
-            Destroy(this.gameObject);
+            SceneManager.LoadScene(2);
         }
         else if (other.gameObject.CompareTag("Point"))
         {

@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 1676553814}
   m_Layer: 5
   m_Name: Text_score
-  m_TagString: Untagged
+  m_TagString: ScoreText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1112,10 +1112,10 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 939446152}
+  - {fileID: 1669551727}
+  - {fileID: 2029302872}
   - {fileID: 1804204659}
   - {fileID: 1702004147}
   - {fileID: 2079774891}
   - {fileID: 1844251744}
-  - {fileID: 1669551727}
-  - {fileID: 2029302872}
-  - {fileID: 939446152}
